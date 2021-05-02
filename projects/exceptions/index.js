@@ -16,37 +16,12 @@
    isAllTrue([1, 2, 3, 4, 5], n => n < 10) // вернет true
    isAllTrue([100, 2, 3, 4, 5], n => n < 10) // вернет false
  */
-// function isAllTrue(array, fn) {
-//   try {
-//     if(Array.isArray(array) == false) {
-//       throw new Error ("empty array");
-//     } else if(array.length == 0) {
-//       throw new Error ("empty array");
-//     } else if(typeof fn !== 'function') {
-//       throw new Error ("fn is not a function")
-//     }
-//   } catch (e) {
-//     console.log(e.message)
-//   }
-
-//   let isTrue, isFalse;
-
-//   for(let i = 0; i < array.length; i++) {
-//     fn(array[i]);
-//     if(fn(array[i]) ) {isTrue = true} else {isFalse = true}
-//   }
-//   if(isTrue && (!isFalse || isFalse == undefined)) {
-//     return true
-//   } else {
-//     return false
-//   }
-// }
 
 function isAllTrue(array, fn) {
   if (typeof fn !== 'function') {
     throw new Error('fn is not a function');
   }
-  if (!Array.isArray(array) || !array.length) {
+  if (typeof array !== 'object' || !array.length) {
     throw new Error('empty array');
   }
   for (const el of array) {
@@ -78,7 +53,7 @@ function isSomeTrue(array, fn) {
   if (typeof fn !== 'function') {
     throw new Error('fn is not a function');
   }
-  if (!Array.isArray(array) || !array.length) {
+  if (typeof array !== 'object' || !array.length) {
     throw new Error('empty array');
   }
 
